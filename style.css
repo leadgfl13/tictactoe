@@ -4,7 +4,8 @@ body{
 
 .wrapper{
     display:flex;
-text-align: center;}
+    text-align: center;     
+    }
 
 
 h1{
@@ -17,14 +18,13 @@ h1{
     grid-template-columns: repeat(3, 1fr);
     height:500px;
     width:800px;
-}
+    margin:auto;}
 
 #gamesquare{
     background-color: blue;
 }
 
 #square{
-    grid-area:1/1/2/2;
     background-color:green;
     border:2px solid black;
 }
