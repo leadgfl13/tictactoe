@@ -1,3 +1,30 @@
 body{
     background-color:wheat;
 }
+
+.wrapper{
+    display:flex;
+text-align: center;}
+
+
+h1{
+    text-align: center;
+}
+#gamearea{
+    border:2px solid black;
+    display:grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    height:500px;
+    width:800px;
+}
+
+#gamesquare{
+    background-color: blue;
+}
+
+#square{
+    grid-area:1/1/2/2;
+    background-color:green;
+    border:2px solid black;
+}

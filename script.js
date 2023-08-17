@@ -1,23 +1,8 @@
-let cat = () =>{
-    alert("Hello")
-}
-cat()
-
-
-function cat2(){
-    alert("hello")
-}
-
-cat2()
-
-let cat3 = function(){
-    alert("hello")
-}
-
-cat3()
-
-(function(){
-    alert("hello")}
-())
-
-(function sayName(name) { console.log(name) } )('Millzie')
+// set array equal to gameboard object
+//this should be a module
+let gameBoard = (() =>{
+    let gamearea = document.getElementById('gamearea')
+    let square = document.createElement('div')
+    square.setAttribute('id', 'square')
+    gamearea.append(square)
+})()
