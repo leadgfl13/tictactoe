@@ -5,20 +5,30 @@ const playerFactory = (name, token) =>{
 let playerOne = playerFactory('play1', 'O')
 let playerTwo = playerFactory('play2', 'X')
 
+const interaction = (()=>{
+    let sub = document.getElementById('submit')
+    sub.addEventListener('click', function(event){
+       event.preventDefault()
+    })
+   sub.addEventListener('click', ()=>{
+       let p1name = document.getElementById('p1').value 
+       let p2name = document.getElementById('p2').value
+       playerOne.name = p1name
+       playerTwo.name = p2name
+       let formy = document.getElementById('form')
+       formy.style.display ='none'})
+   
 
- let sub = document.getElementById('submit')
- sub.addEventListener('click', function(event){
-    event.preventDefault()
- })
-sub.addEventListener('click', ()=>{
-    let p1name = document.getElementById('p1').value 
-    let p2name = document.getElementById('p2').value
-    playerOne.name = p1name
-    playerTwo.name = p2name})
+       let rest = document.getElementById('reset')
+       rest.addEventListener('click', ()=>{
+        location.reload()
+       })
+
+})();
+ 
+
 //gamearea
 const gameBoard = (()=>{
-
-
 //changes players on clicks
     const getcurrentPlayer = () =>{
         if(currentPlayer == playerOne){
@@ -30,8 +40,6 @@ const gameBoard = (()=>{
     }
 
   
-    
-    
        
     //need function for win conditions on board
     const getScore = () =>{
