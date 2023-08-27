@@ -2,11 +2,19 @@ const playerFactory = (name, token) =>{
     return{name, token}
 }
 //players
-const playerOne = playerFactory("p1", 'O')
-const playerTwo = playerFactory('p2', 'X')
+let playerOne = playerFactory('play1', 'O')
+let playerTwo = playerFactory('play2', 'X')
 
 
-
+ let sub = document.getElementById('submit')
+ sub.addEventListener('click', function(event){
+    event.preventDefault()
+ })
+sub.addEventListener('click', ()=>{
+    let p1name = document.getElementById('p1').value 
+    let p2name = document.getElementById('p2').value
+    playerOne.name = p1name
+    playerTwo.name = p2name})
 //gamearea
 const gameBoard = (()=>{
 
@@ -21,10 +29,12 @@ const gameBoard = (()=>{
         }
     }
 
-
+  
+    
+    
+       
     //need function for win conditions on board
     const getScore = () =>{
-
         if(
             gameArray[0].innerHTML && gameArray[1].innerHTML && gameArray[2].innerHTML && gameArray[3].innerHTML && gameArray[4].innerHTML && 
             gameArray[5].innerHTML && gameArray[6].innerHTML && gameArray[7].innerHTML && gameArray[8].innerHTML){
@@ -43,9 +53,13 @@ const gameBoard = (()=>{
             gameArray[3].innerHTML == 'X' && gameArray[4].innerHTML  == 'X' && gameArray[5].innerHTML =='X' ||
             gameArray[6].innerHTML == 'X' && gameArray[7].innerHTML == 'X' && gameArray[8].innerHTML =='X' ||
             gameArray[2].innerHTML == 'X' && gameArray[5].innerHTML == 'X' && gameArray[6].innerHTML =='X' ){
-            console.log("p1 wins")
+            let poop = document.getElementById('p1').value
+            console.log(p1.name)
             let display =document.getElementById('display')
-            display.innerHTML = "P1 Wins"
+            display.innerHTML = (playerOne.name + ' wins')
+            
+            
+    
             for(let i =0; i<gameArray.length; i++){
                 gameArray[i].innerHTML = ''
             }
@@ -59,23 +73,20 @@ const gameBoard = (()=>{
             gameArray[2].innerHTML == 'O' && gameArray[5].innerHTML == 'O' &&  gameArray[8].innerHTML =='O' ||
             gameArray[3].innerHTML == 'O' && gameArray[4].innerHTML  == 'O' && gameArray[5].innerHTML =='O' ||
             gameArray[6].innerHTML == 'O' && gameArray[7].innerHTML == 'O' && gameArray[8].innerHTML =='O' ||
-            gameArray[2].innerHTML == 'O' && gameArray[5].innerHTML == 'O' && gameArray[6].innerHTML =='O' )
+            gameArray[2].innerHTML == 'O' && gameArray[4].innerHTML == 'O' && gameArray[6].innerHTML =='O' )
             {
-            console.log("p2 wins")
+            console.log(playerTwo.anem + ' wins')
             let display =document.getElementById('display')
-            display.innerHTML = "P2 Wins"
+            
+            display.innerHTML = (playerTwo.name + 'wins')
             for(let i =0; i<gameArray.length; i++){
                 gameArray[i].innerHTML = ''
-            }      
+                
 
-            
+            }      
             }    
     }
         
-    
-
-    
-
 
     //creates gameboard
         const gameArray= []
@@ -90,8 +101,6 @@ const gameBoard = (()=>{
                     square.innerHTML = currentPlayer.token
                 }
                 else{return}
-                    
-                
                 square.innerHTML = currentPlayer.token
                 console.log(currentPlayer)
                 getScore()
@@ -99,8 +108,6 @@ const gameBoard = (()=>{
             gameArray.push(square)
             gameArea.append(gameArray[i])
             }
-            
-
     })();
 
 
